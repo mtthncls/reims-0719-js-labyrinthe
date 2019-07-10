@@ -1,18 +1,17 @@
 body{
-  height: 606px;
-  width: 909px;
+  height: 303px;
+  width: 100vw;
 }
-.App {
-  text-align: center;
 
+.row{
   display: flex;
-  justify-content: space-around;
-  height: 50vh;
-  padding: 10px;
+  flex-direction: row;
+  border: solid 1px blue;
+  flex-wrap: wrap;
 }
 
-.case{
- border : solid;
-  background-color: blue;
-  width: 33.33%;
+.case {
+  text-align: center;
+  border: solid;
+  width: 33%;
 }
