@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
+class App extends Component {
+
+  render() {
+    const grid = [[1, 2, 3], [4, 5, 6]]
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    grid.map(row => (
+    <div className="App" key={row}>
+      {row.map(cell => (
+      <div className="case" key={cell}>
+        id={cell}
+      </div>))}
+    </div>),
+  )
+  )}
+    }
 
 export default App;
