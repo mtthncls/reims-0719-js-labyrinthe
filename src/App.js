@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
+import grid from './Components/Grid'
 
 class App extends Component {
 
   render() {
-    const grid = [[1, 2, 3], [4, 5, 6]]
-    
-  return (
-    grid.map(row => (
-    <div className="App" key={row}>
-      {row.map(cell => (
-      <div className="case" key={cell}>
-        id={cell}
-      </div>))}
-    </div>),
-  )
-  )}
-    }
+
+    return (
+      grid.map(row => (
+        <div className="App" key={row}>
+          {row.map(cell => (
+            <div className="case" key={cell.id}>
+              id={cell.id}
+            </div>))}
+        </div>),
+      )
+    )
+  }
+}
 
 export default App;
