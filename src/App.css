@@ -4,14 +4,15 @@ body{
 }
 .App {
   text-align: center;
-  border: solid 1px red;
+
   display: flex;
   justify-content: space-around;
   height: 50vh;
+  padding: 10px;
 }
 
 .case{
-  border: solid 1px black;
+ border : solid;
   background-color: blue;
   width: 33.33%;
 }

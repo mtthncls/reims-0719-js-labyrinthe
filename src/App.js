@@ -10,7 +10,13 @@ class App extends Component {
       grid.map(row => (
         <div className="App" key={row}>
           {row.map(cell => (
-            <div className="case" key={cell.id}>
+            <div className="case" style={{
+              borderColor: 'red',
+              borderLeftWidth: cell.left !== 0 ? '0' : '3px',
+              borderTopWidth: cell.top !== 0 ? '0' : '3px',
+              borderBottomWidth: cell.down !== 0 ? '0' : '3px',
+              borderRightWidth: cell.right !== 0 ? '0' : '3px',
+            }} key={cell.id}>
               id={cell.id}
             </div>))}
         </div>),
