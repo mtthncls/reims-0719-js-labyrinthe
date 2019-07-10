@@ -5,10 +5,10 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-      case 'CHANGE_FILTER':
+      case 'MOVE_PLAYER':
         return {
           ...state,
-          filter: action.filter
+          position: action.position,
         };
         
       default:

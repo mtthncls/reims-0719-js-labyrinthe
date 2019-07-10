@@ -1,5 +1,4 @@
 const grid = [
-    [
         {
             id: 1,
             up: 0,
@@ -21,9 +20,6 @@ const grid = [
             left: 0,
             right: 'out',
         },
-    ],
-
-    [
         {
             id: 4,
             up: 1,
@@ -44,8 +40,7 @@ const grid = [
             down: 0,
             left: 5,
             right: 0,
-        },
-    ]
+        }
 ]
 
 export default (grid)

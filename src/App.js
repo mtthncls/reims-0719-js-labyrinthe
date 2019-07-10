@@ -5,23 +5,26 @@ import './App.css';
 import grid from './Components/Grid'
 
 const mapStateToProps = state => ({
-  position : state.position,
+  position: state.position,
 })
 
 class App extends Component {
   render() {
-    const { position } = this.props;
-    console.log(position)
+    const { position, dispatch } = this.props;
     return (
-      grid.map(row => (
-        <div className="App" key={row}>
-          {row.map(cell => (
-            <div className="case" key={cell.id}>
-              id={cell.id}
-              {cell.id === position && <Player />}
-            </div>))}
-        </div>),       
-      )
+      <div className="container">
+        <div className="row">
+        {grid.map(cell => (
+          <div className="case" key={cell.id}>
+            id={cell.id}
+            {cell.id === position && <Player />}
+          </div>))}
+        </div> 
+        <button type="button" onClick={e => dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].up })}>Up</button>
+        <button type="button" onClick={e => dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].down })}>Down</button>
+        <button type="button" onClick={e => dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].right })}>Right</button>
+        <button type="button" onClick={e => dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].left })}>Left</button>
+      </div>
     )
   }
 }
