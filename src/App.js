@@ -8,18 +8,19 @@ import GameOver from './Components/GameOver';
 const mapStateToProps = state => ({
   isWelcomePageDisplayed: state.isWelcomePageDisplayed,
   isMazePageDisplayed: state.isMazePageDisplayed,
-  position: state.position,
+  positionPlayerOne: state.positionPlayerOne,
+  positionPlayerTwo: state.positionPlayerTwo,
   isWinnerPageDisplayed: state.isWinnerPageDisplayed,
 })
 
 class App extends Component {
   render() {    
-    const { isWelcomePageDisplayed, isMazePageDisplayed, position } = this.props;
+    const { isWelcomePageDisplayed, isMazePageDisplayed, positionPlayerOne } = this.props;
     return (
       <div className="container">
         {isWelcomePageDisplayed && !isMazePageDisplayed && <WelcomePage />}
-        {isMazePageDisplayed && position !=="out" && <Maze />}
-        {!isWelcomePageDisplayed && position ==="out" && <GameOver />}
+        {isMazePageDisplayed && positionPlayerOne !=="out" && <Maze />}
+        {!isWelcomePageDisplayed && positionPlayerOne ==="out" && <GameOver />}
       </div>
     )
   }
