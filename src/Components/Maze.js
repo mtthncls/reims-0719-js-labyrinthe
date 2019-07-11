@@ -51,10 +51,15 @@ const Maze = ({ position, dispatch }) => {
                     <div className="case" key={cell.id} style={{
                         borderColor: '#aa3311',
                         borderStyle: 'dashed',
-                        borderLeftWidth: cell.left !== 0 ? '0px' : '3px',
-                        borderTopWidth: cell.top !== 0 ? '0px' : '3px',
-                        borderBottomWidth: cell.down !== 0 ? '0px' : '3px',
-                        borderRightWidth: cell.right !== 0 ? '0px' : '3px',
+                        borderLeftColor: cell.left !== 0 && "white",
+                        borderTopColor: cell.top !== 0 && "white",
+                        borderBottomColor: cell.down !== 0 && "white",
+                        borderRightColor: cell.right !== 0 && "white",
+                        borderLeftWidth: cell.left !== 0 ? '3px' : '3px',
+                        borderTopWidth: cell.top !== 0 ? '5px' : '5px',
+                        borderBottomWidth: cell.down !== 0 ? '5px' : '5px',
+                        borderRightWidth: cell.right !== 0 ? '3px' : '3px',
+
                     }}>
                         id={cell.id}
                         {cell.id === position && <Player />}
