@@ -16,11 +16,11 @@ class App extends Component {
         <div className="row">
           {grid.map(cell => (
             <div className="case" key={cell.id} style={{
-              borderColor: 'red',
-              borderLeftWidth: cell.left !== 0 ? '0' : '3px',
-              borderTopWidth: cell.top !== 0 ? '0' : '3px',
-              borderBottomWidth: cell.down !== 0 ? '0' : '3px',
-              borderRightWidth: cell.right !== 0 ? '0' : '3px',
+              borderColor: 'black',
+              borderLeftWidth: cell.left !== 0 ? '0' : '1px',
+              borderTopWidth: cell.top !== 0 ? '0' : '1px',
+              borderBottomWidth: cell.down !== 0 ? '0' : '1px',
+              borderRightWidth: cell.right !== 0 ? '0' : '1px',
             }}>
               id={cell.id}
               {cell.id === position && <Player />}
