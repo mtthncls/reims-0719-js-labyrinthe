@@ -1,60 +1,71 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import grid from './Grid';
-import Player from './Player';
-import GameOver from './GameOver';
+import PlayerOne from './PlayerOne';
+import PlayerTwo from './PlayerTwo';
+import GameOver from './GameWin';
 
 const mapStateToProps = state => ({
-    position: state.position,
+    positionPlayerOne: state.positionPlayerOne,
+    positionPlayerTwo: state.positionPlayerTwo,
 })
 
-const Maze = ({ position, dispatch }) => {
-    const handleKeyDown = (event) => {
-      switch (event.keyCode) {
-        //Up Move
-        case 38 : 
-          dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].up !== 0 ? grid[position - 1].up : position });
-          break;
-        case 90 : 
-          dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].up !== 0 ? grid[position - 1].up : position });
-          break;
-        //Down Move  
-        case 40 :
-            dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].down !== 0 ? grid[position - 1].down : position });
-          break;
-        case 83 :
-            dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].down !== 0 ? grid[position - 1].down : position });
-          break;
-        //Left Move  
-        case 81 :
-            dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].left !== 0 ? grid[position - 1].left : position });
-          break;
-        case 37 :
-            dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].left !== 0 ? grid[position - 1].left : position });
-          break;  
-        //Right Move  
-        case 39 :
-            dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].right !== 0 ? grid[position - 1].right : position });
-          break;
-        case 68 :
-            dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].right !== 0 ? grid[position - 1].right : position });
-          break;
-      default : 
-        console.log("default");
-      }
-    }
+    const Maze = ({ positionPlayerOne, positionPlayerTwo, dispatch }) => {
+
+        useEffect(()=>{
+            window.addEventListener('keydown', handleKeyDown)
+            return ()=>{window.removeEventListener('keydown', handleKeyDown)}
+         },[])
+
+        const handleKeyDown = (event) => {
+            switch (event.keyCode) {
+              //Up Move
+              case 90 : 
+                dispatch({ type: 'MOVE_PLAYER_ONE_UP', positionPlayerTwo : positionPlayerTwo });
+                break;
+              case 38 : 
+                dispatch({ type: 'MOVE_PLAYER_TWO_UP', positionPlayerOne: positionPlayerOne });
+                break;
+              //Down Move  
+              case 83 :
+                  dispatch({ type: 'MOVE_PLAYER_ONE_DOWN', positionPlayerTwo: positionPlayerTwo });
+                break;
+              case 40 :
+                  dispatch({ type: 'MOVE_PLAYER_TWO_DOWN', positionPlayerOne: positionPlayerOne });
+                break;
+              //Left Move  
+              case 81 :
+                  dispatch({ type: 'MOVE_PLAYER_ONE_LEFT', positionPlayerTwo: positionPlayerTwo });
+                break;
+              case 37 :
+                  dispatch({ type: 'MOVE_PLAYER_TWO_LEFT', positionPlayerOne: positionPlayerOne });
+                break;  
+              //Right Move  
+              case 68 :
+                  dispatch({ type: 'MOVE_PLAYER_ONE_RIGHT', positionPlayerTwo: positionPlayerTwo });
+                break;
+              case 39 :
+                  dispatch({ type: 'MOVE_PLAYER_TWO_RIGHT', positionPlayerOne: positionPlayerOne });
+                break;
+            default : 
+              console.log("default");
+            }
+          }
+
+    
+
     return (
         <div>
-            <button type="button" onKeyDown = {handleKeyDown}>START</button>
             <div className="row">
                 {grid.map(cell => (
                     <div className="case" key={cell.id} style={{
                         borderColor: '#aa3311',
                         borderStyle: 'dashed',
-                        borderLeftColor: cell.left !== 0 && "white",
-                        borderTopColor: cell.top !== 0 && "white",
-                        borderBottomColor: cell.down !== 0 && "white",
-                        borderRightColor: cell.right !== 0 && "white",
+                        borderLeftColor: cell.left !== 0 && "grey",
+                        borderTopColor: cell.top !== 0 && "grey",
+                        borderBottomColor: cell.down !== 0 && "grey",
+                        borderRightColor: cell.right !== 0 && "grey",
                         borderLeftWidth: cell.left !== 0 ? '3px' : '3px',
                         borderTopWidth: cell.top !== 0 ? '5px' : '5px',
                         borderBottomWidth: cell.down !== 0 ? '5px' : '5px',
@@ -62,10 +73,11 @@ const Maze = ({ position, dispatch }) => {
 
                     }}>
                         id={cell.id}
-                        {cell.id === position && <Player />}
+                        {cell.id === positionPlayerOne && <PlayerOne />}
+                        {cell.id === positionPlayerTwo && <PlayerTwo />}
                     </div>))}
             </div>
-            {position === "out" && <GameOver />}
+            {positionPlayerOne === "out" && <GameOver />}
         </div>
     )
 }

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
+
+
+.welcome{
+    font-family: 'VT323', monospace;
+    font-size: 3vh;
+    text-align: center;
+    background-color: black; 
+    color: white;
+    margin : none;
+    padding: 10px;
+}
+
+.welcome img{
+    width: 1000px;
+    height: 400px;
+    border: dotted;
+    animation: blink .5s step-end infinite alternate;
+}
+.pave{
+    text-align: center;
+}
+
+.red{
+    color: red;
+}
+
+@keyframes blink { 
+    50% { border-color: #ff0000; } 
+ }
+
+button {
+    font-family: 'VT323', monospace;
+    background-color: white;
+    border: dotted 5px white;
+    font-size: 5vh;
+    animation: blink .5s step-end infinite alternate;
+}
