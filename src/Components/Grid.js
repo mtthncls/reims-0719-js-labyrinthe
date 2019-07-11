@@ -205,7 +205,7 @@ const grid = [
         {
             id: 30,
             up: 15,
-            down: 45,
+            down: 0,
             left: 0,
             right: 0,
         },
@@ -309,7 +309,7 @@ const grid = [
         },
         {
             id: 45,
-            up: 30,
+            up: 0,
             down: 0,
             left: 44,
             right: 0,
@@ -1136,7 +1136,7 @@ const grid = [
         {
             id: 163,
             up: 0,
-            down: 0,
+            down: 178,
             left: 162,
             right: 164,
         },
@@ -1227,7 +1227,7 @@ const grid = [
             {
             id: 176,
             up: 0,
-            down: 191,
+            down: 0,
             left: 175,
             right: 177,
             },
@@ -1240,7 +1240,7 @@ const grid = [
             },
             {
             id: 178,
-            up: 0,
+            up: 163,
             down: 193,
             left: 0,
             right: 179,
@@ -1331,16 +1331,16 @@ const grid = [
             },
             {
             id: 191,
-            up: 176,
+            up: 0,
             down: 206,
             left: 190,
-            right: 0,
+            right: 192,
             },
             {
             id: 192,
             up: 177,
             down: 207,
-            left: 0,
+            left: 191,
             right: 0,
             },
             {
@@ -1558,13 +1558,13 @@ const grid = [
             up: 0,
             down: 0,
             left: 222,
-            right: 0,
+            right: 224,
             },
             {
             id: 224,
             up: 0,
             down: 0,
-            left: 0,
+            left: 223,
             right: 225,
             },
             {

@@ -5,13 +5,15 @@ import grid from './Grid';
 import PlayerOne from './PlayerOne';
 import PlayerTwo from './PlayerTwo';
 import GameOver from './GameWin';
+import Key from './Key';
 
 const mapStateToProps = state => ({
     positionPlayerOne: state.positionPlayerOne,
     positionPlayerTwo: state.positionPlayerTwo,
+    positionKey: state.positionKey,
 })
 
-    const Maze = ({ positionPlayerOne, positionPlayerTwo, dispatch }) => {
+    const Maze = ({ positionPlayerOne, positionPlayerTwo, positionKey, dispatch }) => {
 
         useEffect(()=>{
             window.addEventListener('keydown', handleKeyDown)
@@ -19,41 +21,40 @@ const mapStateToProps = state => ({
          },[])
 
         const handleKeyDown = (event) => {
+          event.preventDefault()
             switch (event.keyCode) {
               //Up Move
               case 90 : 
-                dispatch({ type: 'MOVE_PLAYER_ONE_UP', positionPlayerTwo : positionPlayerTwo });
+                dispatch({ type: 'MOVE_PLAYER_ONE_UP' });
                 break;
               case 38 : 
-                dispatch({ type: 'MOVE_PLAYER_TWO_UP', positionPlayerOne: positionPlayerOne });
+                dispatch({ type: 'MOVE_PLAYER_TWO_UP' });
                 break;
               //Down Move  
               case 83 :
-                  dispatch({ type: 'MOVE_PLAYER_ONE_DOWN', positionPlayerTwo: positionPlayerTwo });
+                  dispatch({ type: 'MOVE_PLAYER_ONE_DOWN' });
                 break;
               case 40 :
-                  dispatch({ type: 'MOVE_PLAYER_TWO_DOWN', positionPlayerOne: positionPlayerOne });
+                  dispatch({ type: 'MOVE_PLAYER_TWO_DOWN' });
                 break;
               //Left Move  
               case 81 :
-                  dispatch({ type: 'MOVE_PLAYER_ONE_LEFT', positionPlayerTwo: positionPlayerTwo });
+                  dispatch({ type: 'MOVE_PLAYER_ONE_LEFT' });
                 break;
               case 37 :
-                  dispatch({ type: 'MOVE_PLAYER_TWO_LEFT', positionPlayerOne: positionPlayerOne });
+                  dispatch({ type: 'MOVE_PLAYER_TWO_LEFT' });
                 break;  
               //Right Move  
               case 68 :
-                  dispatch({ type: 'MOVE_PLAYER_ONE_RIGHT', positionPlayerTwo: positionPlayerTwo });
+                  dispatch({ type: 'MOVE_PLAYER_ONE_RIGHT' });
                 break;
               case 39 :
-                  dispatch({ type: 'MOVE_PLAYER_TWO_RIGHT', positionPlayerOne: positionPlayerOne });
+                  dispatch({ type: 'MOVE_PLAYER_TWO_RIGHT' });
                 break;
             default : 
               console.log("default");
             }
           }
-
-    
 
     return (
         <div>
@@ -61,7 +62,6 @@ const mapStateToProps = state => ({
                 {grid.map(cell => (
                     <div className="case" key={cell.id} style={{
                         borderColor: '#aa3311',
-                        borderStyle: 'dashed',
                         borderLeftColor: cell.left !== 0 && "grey",
                         borderTopColor: cell.top !== 0 && "grey",
                         borderBottomColor: cell.down !== 0 && "grey",
@@ -75,6 +75,7 @@ const mapStateToProps = state => ({
                         id={cell.id}
                         {cell.id === positionPlayerOne && <PlayerOne />}
                         {cell.id === positionPlayerTwo && <PlayerTwo />}
+                        {cell.id === positionKey && <Key />}
                     </div>))}
             </div>
             {positionPlayerOne === "out" && <GameOver />}

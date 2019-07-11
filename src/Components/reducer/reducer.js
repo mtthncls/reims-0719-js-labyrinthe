@@ -6,6 +6,7 @@ const initialState = {
   isWinnerPageDisplayed: false,
   positionPlayerOne: 2,
   positionPlayerTwo: 20,
+  positionKey: 190,
 };
 
 
