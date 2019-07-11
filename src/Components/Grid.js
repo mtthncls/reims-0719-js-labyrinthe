@@ -1075,7 +1075,7 @@ const grid = [
             up: 139,
             down: 0,
             left: 0,
-            right: 154,
+            right: 155,
         },
         {
             id: 155,
