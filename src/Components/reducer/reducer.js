@@ -3,7 +3,7 @@ const initialState = {
 };
    
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action, playerWay) => {
     switch (action.type) {
       case 'MOVE_PLAYER':
         return {
