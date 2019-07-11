@@ -1,19 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import grid from './Grid';
+
 import PlayerOne from './PlayerOne';
 import PlayerTwo from './PlayerTwo';
 import GameOver from './GameWin';
 import Key from './Key';
+import KeyFound from './KeyFound'
 
 const mapStateToProps = state => ({
     positionPlayerOne: state.positionPlayerOne,
     positionPlayerTwo: state.positionPlayerTwo,
     positionKey: state.positionKey,
+    isKeyFound: state.isKeyFound,
+    grid: state.grid
 })
 
-    const Maze = ({ positionPlayerOne, positionPlayerTwo, positionKey, dispatch }) => {
+    const Maze = ({ positionPlayerOne, positionPlayerTwo, positionKey, isKeyFound, grid, dispatch }) => {
 
         useEffect(()=>{
             window.addEventListener('keydown', handleKeyDown)
@@ -75,8 +78,9 @@ const mapStateToProps = state => ({
                         id={cell.id}
                         {cell.id === positionPlayerOne && <PlayerOne />}
                         {cell.id === positionPlayerTwo && <PlayerTwo />}
-                        {cell.id === positionKey && <Key />}
+                        {(cell.id === positionKey && !isKeyFound) && <Key />}
                     </div>))}
+                    {positionPlayerOne === positionKey && dispatch({type:'GET_KEY'}) && <KeyFound />}                                        
             </div>
             {positionPlayerOne === "out" && <GameOver />}
         </div>
