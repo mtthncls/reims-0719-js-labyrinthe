@@ -8,8 +8,8 @@ const GameWin = ({ dispatch }) => {
             <header className="welcome-page-header">THE MAZE RUNNERS</header>
 
             <div>
-                <p>MOUHAHAHA !</p>
-                <p>YOU 'RE F***ING LOOSER !!</p>
+                <p>GOOD JOB !</p>
+                <p>YOU FIND THE EXIT</p>
                 <p>IF YOU WANT TO RETRY, PLEASE PRESS TO THE BUTTON BELOW</p>
             </div>
             <button onClick={() => dispatch({ type: 'RETRY' })}>RETRY</button>

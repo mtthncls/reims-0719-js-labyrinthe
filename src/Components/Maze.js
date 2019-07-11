@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import grid from './Grid';
 import PlayerOne from './PlayerOne';
 import PlayerTwo from './PlayerTwo';
-import GameOver from './GameOver';
+import GameOver from './GameWin';
 
 const mapStateToProps = state => ({
     positionPlayerOne: state.positionPlayerOne,

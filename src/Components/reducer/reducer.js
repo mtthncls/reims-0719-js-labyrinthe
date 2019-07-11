@@ -3,7 +3,7 @@ const initialState = {
   isMazePageDisplayed: false,
   isWinnerPageDisplayed: false,
   positionPlayerOne: 2,
-  positionPlayerTwo: 35,
+  positionPlayerTwo: 20,
 };
 
 
@@ -24,9 +24,10 @@ const reducer = (state = initialState, action) => {
     case 'RETRY':
       return {
         ...state,
-        isWelcomePageDisplayed: true,
-        isMazePageDisplayed: false,
+        isWelcomePageDisplayed: false,
+        isMazePageDisplayed: true,
         positionPlayerOne: 2,
+        positionPlayerTwo: 20,
       }  
 
     default:
