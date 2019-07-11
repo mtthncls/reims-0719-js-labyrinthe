@@ -1,6 +1,5 @@
 body{
-  height: 303px;
-  width: 100vw;
+  background-color: black;
 }
 
 .row{
@@ -10,6 +9,9 @@ body{
   flex-wrap: wrap;
 }
 
+img{
+  max-height: 50%;
+}
 .case {
   text-align: center;
   border: solid;
