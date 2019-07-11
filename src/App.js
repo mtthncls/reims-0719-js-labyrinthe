@@ -1,3 +1,4 @@
+/* eslint-disable no-fallthrough */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Player from './Components/player';
@@ -11,6 +12,24 @@ const mapStateToProps = state => ({
 class App extends Component {
   render() {
     const { position, dispatch } = this.props;
+    const handleKeyDown = (event) => {
+      switch (event.keyCode) {
+        case 38 : 
+          dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].up !== 0 ? grid[position - 1].up : position });
+          break;
+        case 40 :
+            dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].down !== 0 ? grid[position - 1].down : position });
+          break;
+        case 37 :
+          dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].left !== 0 ? grid[position - 1].left : position });
+          break;
+        case 39 :
+            dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].right !== 0 ? grid[position - 1].right : position });
+          break;
+      default : 
+        console.log("default");
+      }
+    }
     return (
       <div className="container">
         <div className="row">
@@ -21,18 +40,17 @@ class App extends Component {
               borderTopWidth: cell.top !== 0 ? '0' : '3px',
               borderBottomWidth: cell.down !== 0 ? '0' : '3px',
               borderRightWidth: cell.right !== 0 ? '0' : '3px',
-            }}>
+            }}
+            >
               id={cell.id}
               {cell.id === position && <Player />}
             </div>))}
         </div>
-        <button type="button" onClick={e => dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].up !== 0 ? grid[position - 1].up : position })}>Up</button>
-        <button type="button" onClick={e => dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].down !== 0 ? grid[position - 1].down : position })}>Down</button>
-        <button type="button" onClick={e => dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].right !== 0 ? grid[position - 1].right : position })}>Right</button>
-        <button type="button" onClick={e => dispatch({ type: 'MOVE_PLAYER', position: grid[position - 1].left !== 0 ? grid[position - 1].left : position })}>Left</button>
+        <button type="button" onKeyDown = {handleKeyDown}>START</button>
       </div >
     )
   }
+
 }
 
 export default connect(mapStateToProps)(App);
