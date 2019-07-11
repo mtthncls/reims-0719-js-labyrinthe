@@ -8,12 +8,12 @@ body{
   flex-direction: row;
   border: solid 1px blue;
   flex-wrap: wrap;
-  width: 1500px;
+  width: 100%;
 }
 
 .case {
   text-align: center;
   border: solid;
-  width: 6.4%;
+  width: 6.3%;
   height: 15vh;
 }
