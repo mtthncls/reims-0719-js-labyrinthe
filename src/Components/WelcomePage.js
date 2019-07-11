@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 
-const WelcomePage = () => {
+const WelcomePage = ({ dispatch }) => {
     return (
         <main>
             <header className="welcome-page-header">THE MAZE RUNNERS</header>
@@ -14,9 +14,9 @@ const WelcomePage = () => {
                 <p>PLAYER ONE WILL HAVE TO ESCAPE THE MAZE.</p>
                 <p>PLAYER TWO WILL HAVE TO TRY TO CATCH UP PLAYER ONE OR ESCAPE THE MAZE FIRST.</p>
             </div>
-            <button>ENTER THE MAZE</button>
+            <button onClick={() => dispatch({ type: 'DISPLAY_MAZE' })}>ENTER THE MAZE</button>
         </main>
     )
 }
 
-export default (WelcomePage);
+export default connect()(WelcomePage);

@@ -7,17 +7,18 @@ import './App.css';
 
 
 const mapStateToProps = state => ({
+  isWelcomePageDisplayed: state.isWelcomePageDisplayed,
   isMazePageDisplayed: state.isMazePageDisplayed,
   position: state.position,
 })
 
 class App extends Component {
   render() {
-    const { isMazePageDisplayed } = this.props;
+    const { isWelcomePageDisplayed, isMazePageDisplayed } = this.props;
     return (
 
       <div className="container">
-        {!isMazePageDisplayed && <WelcomePage />}
+        {isWelcomePageDisplayed && !isMazePageDisplayed && <WelcomePage />}
         {isMazePageDisplayed && <Maze />}
       </div>
     )
