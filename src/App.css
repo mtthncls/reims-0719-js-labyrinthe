@@ -1,7 +1,7 @@
 body{
   height: 50%;
   width: 100%;
-}
+}  
 
 .row{
   display: flex;
@@ -16,4 +16,5 @@ body{
   border: solid;
   width: 6.3%;
   height: 15vh;
+
 }
