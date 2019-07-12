@@ -4,7 +4,7 @@ class PlayerOne extends Component {
     render() {
         return (
          <div > 
-          <img src="https://i.pinimg.com/originals/f5/75/2c/f5752c7c9f03832209f0bb8b57214281.gif" height="60vh" width="60vh" alt="avatar" />
+          <img src="https://media.giphy.com/media/Juis0JfeDlEJO/200w.gif" height="50vh" width="30vh" alt="avatar" />
          </div>
        )
     }

@@ -1,9 +1,10 @@
 import React from 'react';
+import './WelcomePage.css';
 
 const KeyFound = () => {
     return (
             <div>
-                <p>The door is opened !</p>
+                <p className="keyfound"> You found the key ! You can leave from this Maze !</p>
             </div>
     )
 }

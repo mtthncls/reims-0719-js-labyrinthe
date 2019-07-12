@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import './WelcomePage.css';
+import '../App.css';
 import PlayerOne from './PlayerOne';
 import PlayerTwo from './PlayerTwo';
 import GameOver from './GameWin';
@@ -61,7 +62,12 @@ const mapStateToProps = state => ({
 
     return (
         <div>
-          <header className="welcome-page-header">THE MAZE RUNNERS</header>
+          <header className="header">THE MAZE RUNNERS</header>
+          <object type="audio/mpeg" width="0" height="0" data="fichier.mp3">
+<param name="filename" value="fichier.mp3" />
+<param name="autostart" value="true" />
+<param name="loop" value="false" />
+</object>
             <div className="row">
                 {grid.map(cell => (
                     <div className="case" key={cell.id} style={{
@@ -76,14 +82,12 @@ const mapStateToProps = state => ({
                         borderRightWidth: cell.right !== 0 ? '3px' : '3px',
 
                     }}>
-                        id={cell.id}
                         {cell.id === positionPlayerOne && <PlayerOne />}
                         {cell.id === positionPlayerTwo && <PlayerTwo />}
                         {(cell.id === positionKey && !isKeyFound) && <Key />}
-                    </div>))}
-                    {positionPlayerOne === positionKey && dispatch({type:'GET_KEY'}) && <KeyFound />}
-                    {isKeyFound && dispatch({type: 'OPEN_DOOR'})}                                        
+                    </div>))}                                       
             </div>
+            {positionPlayerOne === positionKey && dispatch({type:'GET_KEY'}) && <KeyFound />}
             {positionPlayerOne === "out" && <GameOver />}
         </div>
     )

@@ -8,7 +8,7 @@ const GameWin = ({ dispatch }) => {
         <main className="welcome">
             <header className="welcome-page-header">THE MAZE RUNNERS</header>
             <div className='pave'>
-                <img src="https://media.giphy.com/media/3ohfFxoLUgfHh88xcQ/giphy.gif" alt="mario"/>
+                <img src="https://cdn2.pu.nl/media/laura/mariodans.gif" alt="mario"/>
                 <p>GOOD JOB !</p>
                 <p>YOU FOUND THE EXIT</p>
                 <p>IF YOU WANT TO RETRY, PLEASE PRESS TO THE BUTTON BELOW</p>

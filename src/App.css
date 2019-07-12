@@ -1,24 +1,26 @@
 body{
   height: 50%;
   width: 100%;
+  background-color: black;
 }  
 
 .row{
   background-color: grey;
   display: flex;
   flex-direction: row;
-  border: solid 1px blue;
+  border: solid 5px white;
   flex-wrap: wrap;
-  width: 100%;
+  width: 98%;
+  margin-top: 1vh;
 }
 
 img{
   max-height: 50%;
 }
+
 .case {
   text-align: center;
   border: solid;
-  width: 6.1%;
-  height: 10vh;
-
+  width: 6.16%;
+  height: 9vh;
 }

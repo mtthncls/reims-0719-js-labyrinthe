@@ -5,7 +5,8 @@ import './WelcomePage.css';
 const WelcomePage = ({ dispatch }) => {
     return (
         <main className="welcome">
-            <header className="welcome-page-header"><div className='logo'><img src='https://i.imgur.com/VTCOhU6.png' alt='logo' /> </div></header>
+            <header className="header">THE MAZE RUNNERS</header>
+           <div className='logo'><img src='https://media0.giphy.com/media/WwfP2C3z1PO9PUzVfk/giphy.gif?cid=3640f6095bc0aa5c7a76355a4195ae6c' alt='logo' /> </div>
 
             <div className='pave'>
                 <p>WELCOME, PLAYERS !</p>

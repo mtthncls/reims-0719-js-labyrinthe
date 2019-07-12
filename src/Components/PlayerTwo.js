@@ -4,7 +4,7 @@ class PlayerTwo extends Component {
     render() {
         return (
          <div > 
-          <img src="https://thumbs.gfycat.com/BlackYellowEgret-small.gif" height="80vh" width="80vh" alt="avatar" />
+          <img src="http://i.share.pho.to/fc558812_o.gif" height="80vh" width="80vh" alt="avatar" />
          </div>
        )
     }
