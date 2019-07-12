@@ -8,9 +8,10 @@ import GameOver from './GameWin';
 const mapStateToProps = state => ({
     positionPlayerOne: state.positionPlayerOne,
     positionPlayerTwo: state.positionPlayerTwo,
+    count: state.count,
 })
 
-const Maze = ({ positionPlayerOne, positionPlayerTwo, dispatch }) => {
+const Maze = ({ positionPlayerOne, positionPlayerTwo, dispatch, count }) => {
     const handleKeyDown = (event) => {
       switch (event.keyCode) {
         //Up Move
@@ -65,7 +66,7 @@ const Maze = ({ positionPlayerOne, positionPlayerTwo, dispatch }) => {
                     }}>
                         id={cell.id}
                         {cell.id === positionPlayerOne && <PlayerOne />}
-                        {cell.id === positionPlayerTwo && <PlayerTwo />}
+                        {cell.id === positionPlayerTwo && count === 0 && <PlayerTwo />}
                     </div>))}
             </div>
             {positionPlayerOne === "out" && <GameOver />}

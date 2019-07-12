@@ -4,6 +4,7 @@ const initialState = {
   isWinnerPageDisplayed: false,
   positionPlayerOne: 2,
   positionPlayerTwo: 20,
+  count: 5,
 };
 
 
@@ -14,6 +15,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         isWelcomePageDisplayed: !state.isWelcomePageDisplayed,
         isMazePageDisplayed: !state.isMazePageDisplayed,
+        count: action.count,
       };
     case 'MOVE_PLAYER':
       return {
@@ -29,7 +31,11 @@ const reducer = (state = initialState, action) => {
         positionPlayerOne: 2,
         positionPlayerTwo: 20,
       }  
-
+      case 'TIME':
+      return {
+        ...state,
+        count: state.count !== 0 ? state.count - 1 : state.count,
+      }  
     default:
       return state;
   }
