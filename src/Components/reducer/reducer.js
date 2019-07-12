@@ -8,6 +8,7 @@ const initialState = {
     positionDoor: 30,
     positionExit: 15,
     isKeyFound: false,
+    isBehindExit: false,
     grid: [
         {   id: 1,
             up: 0,
@@ -970,6 +971,7 @@ const reducer = (state = initialState, action) => {
                 positionPlayerTwo: 20,
                 positionKey: 115,
                 isKeyFound: false,
+                isBehindExit: false,
                 grid: [
                     {
                         id: 1,

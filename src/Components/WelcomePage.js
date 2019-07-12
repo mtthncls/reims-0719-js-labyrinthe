@@ -12,8 +12,9 @@ const WelcomePage = ({ dispatch }) => {
                 <p>WELCOME, PLAYERS !</p>
                 <p>WE HOPE YOU'LL ENJOY OUR BEAUTIFUL (AND DEADLY) MAZE.</p>
                 <p className='red'>TO WIN THE GAME :</p>
-                <div className='rules'><p>PLAYER ONE HAVE TO ESCAPE THE MAZE.</p>
-                    <p>PLAYER TWO MUST TRY TO CATCH UP PLAYER ONE.</p></div>
+                <div className='rules'><p>PLAYER ONE HAVE TO GRAB THE KEY TO OPEN THE DOOR AND ESCAPE THE MAZE.</p>
+                    <p>PLAYER TWO, 2 SECONDS LATER, MUST TRY TO CATCH UP PLAYER ONE BEFORE HE ESCAPES
+                          .</p></div>
             </div>
             <button className='enter'   onClick={() => dispatch({ type: 'DISPLAY_MAZE' })}>ENTER THE MAZE</button>
         </main>

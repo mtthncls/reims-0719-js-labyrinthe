@@ -18,10 +18,11 @@ const mapStateToProps = state => ({
   positionDoor: state.positionDoor,
   positionExit: state.positionExit,
   isKeyFound: state.isKeyFound,
+  isBehindExit: state.isBehindExit,
   grid: state.grid
 })
 
-const Maze = ({ positionPlayerOne, positionPlayerTwo, positionDoor, positionExit, positionKey, isKeyFound, grid, dispatch }) => {
+const Maze = ({ positionPlayerOne, positionPlayerTwo, positionDoor, positionExit, positionKey, isKeyFound, isBehindExit, grid, dispatch }) => {
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown)
@@ -88,7 +89,7 @@ const Maze = ({ positionPlayerOne, positionPlayerTwo, positionDoor, positionExit
           }}>
             {cell.id === positionPlayerOne && <PlayerOne />}
             {cell.id === positionPlayerTwo && <PlayerTwo />}
-            {cell.id === positionExit && <Exit />}
+            {cell.id === positionExit && positionPlayerOne !== positionExit && <Exit />}
             {(cell.id === positionKey && !isKeyFound) && <Key />}
             {(cell.id === positionDoor && !isKeyFound) && <Door />}
           </div>))}
