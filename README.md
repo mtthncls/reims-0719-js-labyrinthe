@@ -1,3 +1,8 @@
+# Netlify deployed
+https://app.netlify.com/sites/eager-lovelace-0d78a0/overview
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
