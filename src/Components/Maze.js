@@ -80,7 +80,8 @@ const mapStateToProps = state => ({
                         {cell.id === positionPlayerTwo && <PlayerTwo />}
                         {(cell.id === positionKey && !isKeyFound) && <Key />}
                     </div>))}
-                    {positionPlayerOne === positionKey && dispatch({type:'GET_KEY'}) && <KeyFound />}                                        
+                    {positionPlayerOne === positionKey && dispatch({type:'GET_KEY'}) && <KeyFound />}
+                    {isKeyFound && dispatch({type: 'OPEN_DOOR'})}                                        
             </div>
             {positionPlayerOne === "out" && <GameOver />}
         </div>
