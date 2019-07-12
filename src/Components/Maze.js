@@ -5,7 +5,9 @@ import './WelcomePage.css';
 import '../App.css';
 import PlayerOne from './PlayerOne';
 import PlayerTwo from './PlayerTwo';
+import Door from './Door';
 import GameOver from './GameWin';
+import Exit from './Exit';
 import Key from './Key';
 import KeyFound from './KeyFound'
 
@@ -13,11 +15,13 @@ const mapStateToProps = state => ({
   positionPlayerOne: state.positionPlayerOne,
   positionPlayerTwo: state.positionPlayerTwo,
   positionKey: state.positionKey,
+  positionDoor: state.positionDoor,
+  positionExit: state.positionExit,
   isKeyFound: state.isKeyFound,
   grid: state.grid
 })
 
-const Maze = ({ positionPlayerOne, positionPlayerTwo, positionKey, isKeyFound, grid, dispatch }) => {
+const Maze = ({ positionPlayerOne, positionPlayerTwo, positionDoor, positionExit, positionKey, isKeyFound, grid, dispatch }) => {
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown)
@@ -84,9 +88,10 @@ const Maze = ({ positionPlayerOne, positionPlayerTwo, positionKey, isKeyFound, g
           }}>
             {cell.id === positionPlayerOne && <PlayerOne />}
             {cell.id === positionPlayerTwo && <PlayerTwo />}
+            {cell.id === positionExit && <Exit />}
             {(cell.id === positionKey && !isKeyFound) && <Key />}
+            {(cell.id === positionDoor && !isKeyFound) && <Door />}
           </div>))}
-
       </div>
       {isKeyFound && positionPlayerOne === positionKey && <KeyFound />}
       {positionPlayerOne === "out" && <GameOver />}

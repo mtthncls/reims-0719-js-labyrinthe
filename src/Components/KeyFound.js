@@ -4,7 +4,7 @@ import './WelcomePage.css';
 const KeyFound = () => {
     return (
             <div>
-                <p className="keyfound"> You found the key ! You can leave from this Maze !</p>
+                <p className="keyfound"> You found the key ! The Door is opened ! RUNAWAY Dam Foo !</p>
             </div>
     )
 }

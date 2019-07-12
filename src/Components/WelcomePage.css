@@ -14,14 +14,14 @@
 .header{
     font-family: 'VT323', monospace;
     color: yellow;
-    font-size: 4vh;
+    font-size: 7vh;
     font-weight: bold;
     text-align: center;
 }
 .keyfound{
     font-family: 'VT323', monospace;
     color: white;
-    font-size: 5vh;
+    font-size: 4vh;
     text-align: center;
     background-color: black;
 }
