@@ -86,7 +86,9 @@ const Maze = ({ positionPlayerOne, positionPlayerTwo, positionKey, isKeyFound, g
             {cell.id === positionPlayerTwo && <PlayerTwo />}
             {(cell.id === positionKey && !isKeyFound) && <Key />}
           </div>))}
+
       </div>
+      {isKeyFound && positionPlayerOne === positionKey && <KeyFound />}
       {positionPlayerOne === "out" && <GameOver />}
     </div>
   )
