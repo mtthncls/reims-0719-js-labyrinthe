@@ -10,14 +10,15 @@ import Key from './Key';
 import KeyFound from './KeyFound'
 
 const mapStateToProps = state => ({
-  positionPlayerOne: state.positionPlayerOne,
-  positionPlayerTwo: state.positionPlayerTwo,
-  positionKey: state.positionKey,
-  isKeyFound: state.isKeyFound,
-  grid: state.grid
+    positionPlayerOne: state.positionPlayerOne,
+    positionPlayerTwo: state.positionPlayerTwo,
+    positionKey: state.positionKey,
+    isKeyFound: state.isKeyFound,
+    grid: state.grid,
+    count: state.count,
 })
 
-const Maze = ({ positionPlayerOne, positionPlayerTwo, positionKey, isKeyFound, grid, dispatch }) => {
+    const Maze = ({ positionPlayerOne, positionPlayerTwo, positionKey, isKeyFound, grid, dispatch, count }) => {
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown)
@@ -83,7 +84,7 @@ const Maze = ({ positionPlayerOne, positionPlayerTwo, positionKey, isKeyFound, g
 
           }}>
             {cell.id === positionPlayerOne && <PlayerOne />}
-            {cell.id === positionPlayerTwo && <PlayerTwo />}
+            {cell.id === positionPlayerTwo && count === 0 && <PlayerTwo />}
             {(cell.id === positionKey && !isKeyFound) && <Key />}
           </div>))}
 
