@@ -3,7 +3,7 @@
 
 .welcome{
     font-family: 'VT323', monospace;
-    font-size: 3vh;
+    font-size: 2.2vh;
     text-align: center;
     background-color: black; 
     color: white;
@@ -25,10 +25,9 @@
     text-align: center;
     background-color: black;
 }
-.welcome img{
-    margin-top: 3vh;
-    width: 60vw;
-    height: 40vh;
+.welcome .homePic{
+    width: 50vw;
+    height: 30vh;
     border: dotted;
     animation: blink .5s step-end infinite alternate;
 }
