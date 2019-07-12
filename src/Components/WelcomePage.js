@@ -12,8 +12,8 @@ const WelcomePage = ({ dispatch }) => {
                 <p>WELCOME, PLAYERS !</p>
                 <p>WE HOPE YOU'LL ENJOY OUR BEAUTIFUL (AND DEADLY) MAZE.</p>
                 <p className='red'>TO WIN THE GAME :</p>
-                <div className='rules'><p>PLAYER ONE HAVE TO GRAB THE KEY TO OPEN THE DOOR AND ESCAPE THE MAZE.</p>
-                    <p>PLAYER TWO, 2 SECONDS LATER, MUST TRY TO CATCH UP PLAYER ONE BEFORE HE ESCAPES
+                <div className='rules'><p>PLAYER ONE / LUIGI HAVE TO GRAB THE KEY TO OPEN THE DOOR AND ESCAPE THE MAZE.</p>
+                    <p>PLAYER TWO / GHOST MUST TRY TO CATCH UP PLAYER ONE BEFORE HE ESCAPES
                           .</p></div>
                 <img src="https://vignette.wikia.nocookie.net/diepio/images/9/93/WASD.png/revision/latest?cb=20181206065147" alt="keyboard" height="180vh" width="260vh"/>
                 <p>Player One <span>-</span> Player Two</p>  
