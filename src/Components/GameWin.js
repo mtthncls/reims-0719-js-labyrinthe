@@ -10,7 +10,7 @@ const GameWin = ({ dispatch }) => {
             <div className='pave'>
                 <img src="https://media.giphy.com/media/3ohfFxoLUgfHh88xcQ/giphy.gif" alt="mario"/>
                 <p>GOOD JOB !</p>
-                <p>YOU FIND THE EXIT</p>
+                <p>YOU FOUND THE EXIT</p>
                 <p>IF YOU WANT TO RETRY, PLEASE PRESS TO THE BUTTON BELOW</p>
             </div>
             <button onClick={() => dispatch({ type: 'RETRY' })}>RETRY</button>

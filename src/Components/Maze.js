@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-
+import './WelcomePage.css';
 import PlayerOne from './PlayerOne';
 import PlayerTwo from './PlayerTwo';
 import GameOver from './GameWin';
@@ -61,6 +61,7 @@ const mapStateToProps = state => ({
 
     return (
         <div>
+          <header className="welcome-page-header">THE MAZE RUNNERS</header>
             <div className="row">
                 {grid.map(cell => (
                     <div className="case" key={cell.id} style={{
