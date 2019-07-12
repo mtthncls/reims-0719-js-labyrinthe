@@ -11,6 +11,17 @@
     padding: 10px;
     height: 94vh;
 }
+
+.welcome2{
+    font-family: 'VT323', monospace;
+    font-size: 4vh;
+    text-align: center;
+    background-color: black; 
+    color: white;
+    margin-right: 2vh;
+    padding: 10px;
+    height: 94vh;
+}
 .header{
     font-family: 'VT323', monospace;
     color: yellow;

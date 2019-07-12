@@ -5,10 +5,10 @@ import './WelcomePage.css';
 
 const GameWin = ({ dispatch }) => {
     return (
-        <main className="welcome">
+        <main className="welcome2">
             <header className="header">THE MAZE RUNNERS</header>
             <div className='pave'>
-                <img src="https://cdn2.pu.nl/media/laura/mariodans.gif" alt="mario"/>
+                <img src="https://cdn2.pu.nl/media/laura/mariodans.gif" alt="mario" />
                 <p>GOOD JOB !</p>
                 <p>YOU FOUND THE EXIT</p>
                 <p>IF YOU WANT TO RETRY, PLEASE PRESS TO THE BUTTON BELOW</p>
