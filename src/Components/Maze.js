@@ -1,59 +1,72 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import grid from './Grid';
+import './WelcomePage.css';
 import PlayerOne from './PlayerOne';
 import PlayerTwo from './PlayerTwo';
 import GameOver from './GameWin';
+import Key from './Key';
+import KeyFound from './KeyFound'
 
 const mapStateToProps = state => ({
     positionPlayerOne: state.positionPlayerOne,
     positionPlayerTwo: state.positionPlayerTwo,
+    positionKey: state.positionKey,
+    isKeyFound: state.isKeyFound,
+    grid: state.grid,
     count: state.count,
 })
 
-const Maze = ({ positionPlayerOne, positionPlayerTwo, dispatch, count }) => {
-    const handleKeyDown = (event) => {
-      switch (event.keyCode) {
-        //Up Move
-        case 90 : 
-          dispatch({ type: 'MOVE_PLAYER', positionPlayerOne: grid[positionPlayerOne - 1].up !== 0 ? grid[positionPlayerOne - 1].up : positionPlayerOne, positionPlayerTwo : positionPlayerTwo });
-          break;
-        case 38 : 
-          dispatch({ type: 'MOVE_PLAYER', positionPlayerTwo: grid[positionPlayerTwo - 1].up !== 0 ? grid[positionPlayerTwo - 1].up : positionPlayerTwo, positionPlayerOne: positionPlayerOne });
-          break;
-        //Down Move  
-        case 83 :
-            dispatch({ type: 'MOVE_PLAYER', positionPlayerOne: grid[positionPlayerOne - 1].down !== 0 ? grid[positionPlayerOne - 1].down : positionPlayerOne, positionPlayerTwo: positionPlayerTwo });
-          break;
-        case 40 :
-            dispatch({ type: 'MOVE_PLAYER', positionPlayerTwo: grid[positionPlayerTwo - 1].down !== 0 ? grid[positionPlayerTwo - 1].down : positionPlayerTwo, positionPlayerOne: positionPlayerOne });
-          break;
-        //Left Move  
-        case 81 :
-            dispatch({ type: 'MOVE_PLAYER', positionPlayerOne: grid[positionPlayerOne - 1].left !== 0 ? grid[positionPlayerOne - 1].left : positionPlayerOne, positionPlayerTwo: positionPlayerTwo });
-          break;
-        case 37 :
-            dispatch({ type: 'MOVE_PLAYER', positionPlayerTwo: grid[positionPlayerTwo - 1].left !== 0 ? grid[positionPlayerTwo - 1].left : positionPlayerTwo, positionPlayerOne: positionPlayerOne });
-          break;  
-        //Right Move  
-        case 68 :
-            dispatch({ type: 'MOVE_PLAYER', positionPlayerOne: grid[positionPlayerOne - 1].right !== 0 ? grid[positionPlayerOne - 1].right : positionPlayerOne, positionPlayerTwo: positionPlayerTwo });
-          break;
-        case 39 :
-            dispatch({ type: 'MOVE_PLAYER', positionPlayerTwo: grid[positionPlayerTwo - 1].right !== 0 ? grid[positionPlayerTwo - 1].right : positionPlayerTwo, positionPlayerOne: positionPlayerOne });
-          break;
-      default : 
-        console.log("default");
-      }
-    }
+    const Maze = ({ positionPlayerOne, positionPlayerTwo, positionKey, isKeyFound, grid, dispatch, count }) => {
+
+        useEffect(()=>{
+            window.addEventListener('keydown', handleKeyDown)
+            return ()=>{window.removeEventListener('keydown', handleKeyDown)}
+         },[])
+
+        const handleKeyDown = (event) => {
+          event.preventDefault()
+            switch (event.keyCode) {
+              //Up Move
+              case 90 : 
+                dispatch({ type: 'MOVE_PLAYER_ONE_UP' });
+                break;
+              case 38 : 
+                dispatch({ type: 'MOVE_PLAYER_TWO_UP' });
+                break;
+              //Down Move  
+              case 83 :
+                  dispatch({ type: 'MOVE_PLAYER_ONE_DOWN' });
+                break;
+              case 40 :
+                  dispatch({ type: 'MOVE_PLAYER_TWO_DOWN' });
+                break;
+              //Left Move  
+              case 81 :
+                  dispatch({ type: 'MOVE_PLAYER_ONE_LEFT' });
+                break;
+              case 37 :
+                  dispatch({ type: 'MOVE_PLAYER_TWO_LEFT' });
+                break;  
+              //Right Move  
+              case 68 :
+                  dispatch({ type: 'MOVE_PLAYER_ONE_RIGHT' });
+                break;
+              case 39 :
+                  dispatch({ type: 'MOVE_PLAYER_TWO_RIGHT' });
+                break;
+            default : 
+              console.log("default");
+            }
+          }
+
     return (
         <div>
-            <button type="button" onKeyDown = {handleKeyDown}>START</button>
+          <header className="welcome-page-header">THE MAZE RUNNERS</header>
             <div className="row">
                 {grid.map(cell => (
                     <div className="case" key={cell.id} style={{
                         borderColor: '#aa3311',
-                        borderStyle: 'dashed',
                         borderLeftColor: cell.left !== 0 && "grey",
                         borderTopColor: cell.top !== 0 && "grey",
                         borderBottomColor: cell.down !== 0 && "grey",
@@ -67,7 +80,10 @@ const Maze = ({ positionPlayerOne, positionPlayerTwo, dispatch, count }) => {
                         id={cell.id}
                         {cell.id === positionPlayerOne && <PlayerOne />}
                         {cell.id === positionPlayerTwo && count === 0 && <PlayerTwo />}
+                        {(cell.id === positionKey && !isKeyFound) && <Key />}
                     </div>))}
+                    {positionPlayerOne === positionKey && dispatch({type:'GET_KEY'}) && <KeyFound />}
+                    {isKeyFound && dispatch({type: 'OPEN_DOOR'})}                                        
             </div>
             {positionPlayerOne === "out" && <GameOver />}
         </div>
