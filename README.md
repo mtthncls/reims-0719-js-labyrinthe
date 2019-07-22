@@ -10,7 +10,7 @@ Coded in 2 days with lots of love, sweat and junk food by :<br>
 
 # Netlify deployed
 **https://eager-lovelace-0d78a0.netlify.com/**
-
+(desktop only please)
 
 # Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
